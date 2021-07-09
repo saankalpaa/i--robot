@@ -1,0 +1,64 @@
+  
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.addBtn{
+    float: right;
+    margin-top: -52px;
+    margin-right: 95px;
+    background-color: #9EEBCF;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    color: #202133;
+    border: 2px solid #202133;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.addBtn:hover {
+    background: #202133;
+    color: #0ccac4;
+
+}
+
+.customModal {
+    background: #ffffff;
+    max-width: 300px;
+    width: 100%;
+    border-radius: 20px;
+    font-family: 'Bebas Neue', cursive;
+
+}  
+
+.customModal h2{
+    text-align: center;
+    font-size: 30px;
+}
+
+.customModal input{
+    width: 250px;
+    background-color: #CDECFF ;
+    
+}
+
+.customModal label{
+    font-size: 20px;
+}
+
+.addRoboBtn{
+    background-color: #9EEBCF;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2rem;
+    padding: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    color: #202133;
+    border: 2px solid #202133;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 100px;
+}
+
+.addRoboBtn:hover {
+    background: #0ccac4;
+}

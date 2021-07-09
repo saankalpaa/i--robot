@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+.intro-container{
+    margin-left: 200px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.intro-title{
+    font-size: 150px;
+}
+
+.intro-robo{
+    width: 40%;
+    height: 40%;
+    margin-top: -300px;
+    margin-left: 120px;
+}
+.intro-content{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+.intro-column{
+    margin-top: -50px;
+}
+
+.intro-description{
+    font-size: 30px;
+    color: #ffffff;
+    line-height: 150%;
+}
+
+.exploreBtn{
+    border: none;
+    background-color: #0f3647;
+    font-size: 70px;
+    padding: 0.5rem 1.5rem;
+    color: #0ccac4;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.exploreBtn:hover{
+    background-color: #0ccac4;
+    color: #0f3647;
+}
+
+.arrow{
+    width: 20px;
+    height: 20px;
+}
+/* .intro-content img{
+    animation: float 12s ease-in-out infinite;
+    width: 30%;
+    height: 30%;
+    margin-top: -200px;
+    margin-left: 300px;
+} */
+
+.intro-container button{
+    font-size: 30px;
+    
+}
+
+/* @keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+    50%{
+        transform: translatey(100px);
+    }
+	100% {
+		transform: translatey(0px);
+	}
+} */
