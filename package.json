@@ -18,6 +18,9 @@
     "watchpack-chokidar2": "^2.0.1",
     "web-vitals": "^1.1.2"
   },
+  "engines": {
+    "node": "15.2.1"
+  },
   "scripts": {
     "dev": "react-scripts start",
     "start": "serve -s build",
