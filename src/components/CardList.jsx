@@ -83,7 +83,7 @@ const CardList = () => {
                             </label>
                             <label>
                                 ID:
-                                <p><input type='number' value= {id} onChange={onIdChange}/></p>
+                                <p><input type='number' value= {id} onChange={onIdChange} required/></p>
                             </label>
                             <p><button className="addRoboBtn" type="button" onClick={handleAdd}>ADD</button></p>
 

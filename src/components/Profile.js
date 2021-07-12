@@ -9,8 +9,7 @@ const Profile = ({match}) => {
           .then(response=> response.json())
           .then(users => {setRobot(users)});
         console.log(match)
-        },[])
-    
+    },[])
 
     return(
         <div className="profile">
@@ -21,16 +20,13 @@ const Profile = ({match}) => {
                     </div>
                     <div className="info-container">
                         <h1>PERSONAL INFORMATION</h1>
-                        <h2>NAME:</h2> <p>{`${robot.name}`}</p> <br/>
-                        <h2>USERNAME:</h2> <p>{`${robot.username}`}</p><br/>
-                        {/* <h2>CITY: </h2><p>{robot.address[`${match.params.id}`].street}</p><br/> */}
-                        {/* <h2>STREET:</h2> <p>{`${robot.address.street}`}</p><br/> */}
+                        <h2>NAME:</h2> <p> {`${robot.name}`}</p> <br/>
+                        <h2>USERNAME:</h2> <p> {`${robot.username}`}</p><br/>
                         <h2>PHONE NO.:</h2> <p> {`${robot.phone}`}</p><br/>
                         <h2>WEBSITE:</h2> <p> {`${robot.website}`}</p>
                     </div>
                 </div>
             </div>
-            {console.log(robot)}
         </div>
         
     );

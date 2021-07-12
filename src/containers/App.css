@@ -12,3 +12,8 @@ h1{
     padding-top: 20px;
 }
 
+.loading{
+    text-align: center;
+    margin-top: 300px;
+    font-size: 50px;
+}
