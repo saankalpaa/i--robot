@@ -1,9 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import './Profile.css';
+import underConstruction from '../images/underConstruction.jpg'
 
 const Profile = ({match}) => {
 
     const [robot, setRobot] = useState([])
+    const id = match.params.id;
+
     useEffect(()=> {
         fetch(`https://jsonplaceholder.typicode.com/users/${match.params.id}`)
           .then(response=> response.json())
@@ -11,7 +14,9 @@ const Profile = ({match}) => {
         console.log(match)
     },[])
 
-    return(
+    return id > 10 ?
+    <img className="underConstruction" src={underConstruction} alt="underConstruction" />:
+    (
         <div className="profile">
             <div className="profile-container">
                 <div className="row">

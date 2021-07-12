@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Intro from '../components/Intro';
 import App from './App';
 import Profile from '../components/Profile';
@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function Home() {
 
     const [robots, setRobots] = useState([])
+
     useEffect(()=> {
         fetch(`https://jsonplaceholder.typicode.com/users`)
           .then(response=> response.json())
