@@ -4,14 +4,8 @@
     background-color: transparent;
     cursor: pointer;
     color: black;
-}
-
-
-.profileBtn{
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
     margin-left: 240px;
+
 }
 
 #card-container:hover{
