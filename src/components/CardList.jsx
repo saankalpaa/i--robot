@@ -4,24 +4,33 @@ import SearchBox from './searchBox';
 import { Modal } from 'react-responsive-modal';
 import Card from './Card';
 import './CardList.css';
+import db from "../containers/firebase";
 
 const CardList = () => {
 
     const [open, setOpen] = useState(false);
     const onOpenModal = () => setOpen(true);
     const onCloseModal = () => setOpen(false);
+    const [userName, setUserName] = useState('')
     const [name, setName] = useState('')
+    const [website, setWebsite] = useState('')
+    const [phone, setPhone] = useState('')
+    const [address, setAddress] = useState('')
     const [email, setEmail] = useState('')
-    const [id, setId] = useState('')
     const [robots, setRobots] = useState([])
+    const [id, setId] =useState('')
     const [searchfield, setSearchfield] = useState('')
-
-    useEffect(()=> {
-        fetch('https://jsonplaceholder.typicode.com/users')
-          .then(response=> response.json())
-          .then(users => {setRobots(users)});
-      },[]) 
     
+    useEffect(()=>{
+        db.collection('robot')
+        .onSnapshot((snapshot) => {
+            const newRobots = snapshot.docs.map((doc) => ({
+                id:doc.id,
+                ...doc.data()
+            }))
+            setRobots(newRobots)
+        })
+    }, [])
 
     const onSearchChange = (event) => {
         setSearchfield(event.target.value)
@@ -32,12 +41,26 @@ const CardList = () => {
         setName(event.target.value)
     }
 
+    const onIdChange = (event) => {
+        setId(event.target.value)
+    }
+
+
     const onEmailChange = (event) => {
         setEmail(event.target.value)
     }
 
-    const onIdChange = (event) => {
-        setId(event.target.value)
+    const onUserNameChange = (event) => {
+        setUserName(event.target.value)
+    }
+    const onAddressChange = (event) => {
+        setAddress(event.target.value)
+    }
+    const onPhoneChange = (event) => {
+        setPhone(event.target.value)
+    }
+    const onWebsiteChange = (event) => {
+        setWebsite(event.target.value)
     }
 
     const filteredRobots = robots.filter(robots=> {
@@ -45,8 +68,22 @@ const CardList = () => {
     })
 
     function handleAdd() {
-        const newRobot = filteredRobots.concat({ id,name, email });
-        setRobots(newRobot);
+        db.collection("robot")
+        .doc(id)
+        .set({
+          name: name,
+          email: email,
+          username: userName,
+          phone: phone,
+          website: website,
+          address: address,
+        })
+        .then(() => {
+          console.log('successfully added'+ `${name}` + ' to the robots')
+        })
+        .catch((error) => {
+          console.error("",error)
+        })
     }
 
     const deleteRobot = (index,e) => {
@@ -71,21 +108,37 @@ const CardList = () => {
                     onClose={onCloseModal} 
                     center>
                         <h2>ADD ROBOT</h2>
-                        <form>
+                        <form >
+                            <label>
+                                ID:
+                                <p><input type='number' value= {id} onChange={onIdChange} required/></p>
+                            </label>
                         
                             <label>
                                 NAME:
                                 <p><input type='text' placeholder='NAME' value= {name} onChange={onNameChange} required/></p><br></br>
                             </label>
                             <label>
-                                EMAIL:
-                                <p><input type='email' placeholder='eg: example@email.com' value= {email} onChange={onEmailChange} required/></p>
+                                USER NAME:
+                                <p><input type='text' placeholder='USER NAME' value= {userName} onChange={onUserNameChange} required/></p><br></br>
                             </label>
                             <label>
-                                ID:
-                                <p><input type='number' value= {id} onChange={onIdChange} required/></p>
+                                EMAIL:
+                                <p><input type='email' placeholder='EG: example@email.com' value= {email} onChange={onEmailChange} required/></p>
                             </label>
-                            <p><button className="addRoboBtn" type="button" onClick={handleAdd}>ADD</button></p>
+                            <label>
+                                PHONE NO.:
+                                <p><input type='number' value= {phone} onChange={onPhoneChange} required/></p>
+                            </label>
+                            <label>
+                                ADDRESS:
+                                <p><input type='text' placeholder='ADDRESS' value= {address} onChange={onAddressChange} required/></p><br></br>
+                            </label>
+                            <label>
+                                WEBSITE:
+                                <p><input type='text' placeholder='EG: WEBSITE.COM' value= {website} onChange={onWebsiteChange} required/></p><br></br>
+                            </label>
+                            <p><button className="addRoboBtn" type="button" onClick={()=>handleAdd()}>ADD</button></p>
 
                         </form>
                     </Modal>
